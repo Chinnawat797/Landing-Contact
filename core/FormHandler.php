@@ -32,7 +32,8 @@
                 $mail->Body = "ชื่อ: $name\nอีเมล: $email\nข้อความ: $message";
 
                 $mail->send();
-                return ["success" => true, "message" => "Successfully"];
+                header("Location: index.php");
+                exit;
             } catch (Exception $e) {
                 return ["success" => false, "message" => "Send Message To Failed" . $mail->ErrorInfo];
             }
